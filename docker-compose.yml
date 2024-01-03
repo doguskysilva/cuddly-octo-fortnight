@@ -1,0 +1,25 @@
+services:
+  app_transactions:
+    build: ./transactions
+    container_name: transactions
+    command: uvicorn src.main:app --host 0.0.0.0 --port 80 --reload
+    ports:
+      - 8081:80
+    volumes:
+      - ./transactions:/app
+  app_fraud_analyzer:
+    build: ./fraud-analyzer
+    container_name: fraud-analyzer
+    command: uvicorn src.main:app --host 0.0.0.0 --port 80 --reload
+    ports:
+      - 8082:80
+    volumes:
+      - ./fraud-analyzer:/app
+  app_notifications:
+    build: ./notifications
+    container_name: notifications
+    command: uvicorn src.main:app --host 0.0.0.0 --port 80 --reload
+    ports:
+      - 8083:80
+    volumes:
+      - ./notifications:/app
