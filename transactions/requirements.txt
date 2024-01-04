@@ -3,4 +3,5 @@ pydantic
 uvicorn
 pytest
 httpx
+sqlalchemy
 #debugpy

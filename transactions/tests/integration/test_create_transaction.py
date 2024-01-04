@@ -10,4 +10,4 @@ def test_create_transaction(client: TestClient):
     response = client.post("/transactions", json=payload)
 
     assert response.status_code == 201
-    assert response.json() == None
+    assert response.json() == payload
