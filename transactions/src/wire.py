@@ -1,12 +1,8 @@
-from pydantic import BaseModel
-from uuid import UUID
+from .models import Status, TransactionBase
 
-from . import models
-
-class TransactionIn(BaseModel):
-    customer_id: UUID
-    amount: int
-    origin: str
-
-class TransactionOut(models.Transaction):
+class TransactionIn(TransactionBase):
     pass
+
+class TransactionOut(TransactionBase):
+    id: int
+    status: str = Status 
