@@ -1,6 +1,8 @@
 from sqlalchemy import Column, Integer, String, Uuid, Numeric
+from sqlalchemy.orm import declarative_base
 
-from .database import Base
+
+Base = declarative_base()
 
 class Transaction(Base):
     __tablename__ = "transactions"

@@ -1,5 +1,5 @@
 from typing import Literal
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from uuid import UUID
 
 Origin = Literal['app', 'web', 'internal']
@@ -11,10 +11,7 @@ class TransactionBase(BaseModel):
     origin: str = Origin
 
 class Transaction(TransactionBase):
+    model_config = ConfigDict(from_attributes=True)
+
     id: int
     status: str = Status
-
-    class ConfigDict:
-        from_attributes = True
-        allow_population_by_field_name = True
-        arbitrary_types_allowed = True 
