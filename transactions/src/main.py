@@ -19,7 +19,7 @@ def version():
 @app.post("/transactions", status_code=status.HTTP_201_CREATED, response_model=wire.TransactionOut)
 async def create_transaction(
     transaction: wire.TransactionIn, 
-    db: Session = Depends(dependencies.database),
-    logger: Logger = Depends(dependencies.logger)
+    db: Session = Depends(dependencies.get_database),
+    logger: Logger = Depends(dependencies.get_logger)
 ):
     return services.create_transaction(transaction, db, logger)
