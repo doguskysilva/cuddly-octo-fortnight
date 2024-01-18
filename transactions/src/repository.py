@@ -1,9 +1,9 @@
 from typing import Optional
-from sqlalchemy.orm import Session
 
-from src.wire import TransactionIn
+from sqlalchemy.orm import Session
 from src import schemas
 from src.models import Transaction
+from src.wire import TransactionIn
 
 
 def store_transaction(transaction: TransactionIn, db: Session) -> Transaction:
